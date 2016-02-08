@@ -1,3 +1,11 @@
+v2.4.11
+--------------------
+- Updating metadata to use compat_resource ~> 12.7.1
+
+v2.4.10
+--------------------
+- (re)adding host property to docker_network
+
 v2.4.9
 --------------------
 - using require_relative to load files
