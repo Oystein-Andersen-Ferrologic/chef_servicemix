@@ -17,16 +17,21 @@ docker_registry 'https://registry.hub.docker.com' do
   email 'oystein.andersen@ferrologic.se'
 end
 
-docker_image 'ferrologic/servicemix' do
-  tag '6.1.0-prod'
-  action :pull_if_missing
+#docker_image 'hub.docker.com/r/ferrologic/servicemix' do
+#  tag '6.1.0-prod'
+#  action :pull
+#end
+
+docker_image 'mkroli/servicemix' do
+  tag 'latest'
+  action :pull
 end
 
 docker_container 'chef_servicemix' do
-  repo 'ferrologic/servicemix'
-  tag '6.1.0-prod'
+  #repo 'ferrologic/servicemix'
+  repo 'mkroli/servicemix'
+  tag 'latest'
   port ['8181:8181','8101:8101','61616:61616']
-  volumes ['/home/oystein/deploy:/opt/servicemix/deploy','/home/oystein/in:/in','/home/oystein/out:/out']
-  links ['postgres:postgres']
+  volumes ['/home/oystein/chef_servicemix_in:/in','/home/oystein/chef_servicemix_out:/out']
   action :run
 end
