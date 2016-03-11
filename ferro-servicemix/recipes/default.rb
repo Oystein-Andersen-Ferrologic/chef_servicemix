@@ -22,16 +22,16 @@ end
 #  action :pull
 #end
 
-docker_image 'mkroli/servicemix' do
+docker_image 'oysteinandersenferrologic/servicemix' do
   tag 'latest'
   action :pull
 end
 
 docker_container 'chef_servicemix' do
   #repo 'ferrologic/servicemix'
-  repo 'mkroli/servicemix'
+  repo 'oysteinandersenferrologic/servicemix'
   tag 'latest'
   port ['8181:8181','8101:8101','61616:61616']
-  volumes ['/home/oystein/chef_servicemix_in:/in','/home/oystein/chef_servicemix_out:/out']
+  volumes ['/tmp/chef_servicemix_in:/in','tmp/chef_servicemix_out:/out']
   action :run
 end
