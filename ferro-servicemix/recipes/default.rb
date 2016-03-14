@@ -14,7 +14,6 @@ end
 docker_registry 'https://registry.hub.docker.com' do
   username 'oysteinandersenferrologic'
   password 'dcCl84t5PxSnSSy1cmwI'
-  email 'oystein.andersen@ferrologic.se'
 end
 
 #docker_image 'hub.docker.com/r/ferrologic/servicemix' do
@@ -22,16 +21,16 @@ end
 #  action :pull
 #end
 
-docker_image 'oysteinandersenferrologic/servicemix' do
+docker_image 'mkroli/servicemix' do
   tag 'latest'
   action :pull
 end
 
 docker_container 'chef_servicemix' do
   #repo 'ferrologic/servicemix'
-  repo 'oysteinandersenferrologic/servicemix'
+  repo 'mkroli/servicemix'
   tag 'latest'
   port ['8181:8181','8101:8101','61616:61616']
-  volumes ['/tmp/chef_servicemix_in:/in','tmp/chef_servicemix_out:/out']
+  volumes ['/tmp/deploy:/deploy']
   action :run
 end
