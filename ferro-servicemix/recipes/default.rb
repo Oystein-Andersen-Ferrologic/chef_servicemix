@@ -8,7 +8,7 @@
 #
 
 docker_service 'default' do
-  action [:create ]
+  action [:create, :start ]
 end
 
 docker_registry 'https://registry.hub.docker.com' do

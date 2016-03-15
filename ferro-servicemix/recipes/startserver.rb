@@ -9,12 +9,7 @@
 #
 
 
-
-docker_service 'default' do
-  action [:start]
-end
-
-docker_container 'chef_servicemix' do
+  docker_container 'chef_servicemix' do
   #repo 'ferrologic/servicemix'
   repo 'mkroli/servicemix'
   tag 'latest'
