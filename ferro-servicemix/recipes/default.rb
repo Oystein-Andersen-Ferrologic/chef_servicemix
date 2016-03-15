@@ -23,14 +23,5 @@ end
 
 docker_image 'mkroli/servicemix' do
   tag 'latest'
-  action :pull
-end
-
-docker_container 'chef_servicemix' do
-  #repo 'ferrologic/servicemix'
-  repo 'mkroli/servicemix'
-  tag 'latest'
-  port ['8181:8181','8101:8101','61616:61616']
-  volumes ['/tmp/deploy:/deploy']
-  action :run
+  action :pull_if_missing
 end
